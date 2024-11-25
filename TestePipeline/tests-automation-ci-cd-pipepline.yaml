@@ -1,0 +1,54 @@
+name: CI/CD Pipeline testes (e2e, mobile e api)
+
+on:
+  push:
+    branches:
+      - master # Executa o pipeline quando há um commit de acords com a branch
+
+jobs:
+  # Serviço 1 - Rodando os testes de API
+  api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Run API tests
+        run: npm test -- --test-type=api_outsera
+
+  # Serviço 2 2 - Rodando os testes E2E
+  e2e-tests:
+    runs-on: ubuntu-latest
+    needs: api-tests
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Run E2E tests
+        run: npm test -- --test-type=e2e_outsera
+
+  # Serviço 3 - Rodando os testes Mobile
+  mobile-tests:
+    runs-on: ubuntu-latest
+    needs: e2e-tests
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Run Mobile tests
+        run: npm test -- --test-type=mobile_outsera

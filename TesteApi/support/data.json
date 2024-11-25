@@ -1,0 +1,26 @@
+{
+    "urlBase": "https://reqres.in/api/users",
+    "userExpected": {
+      "id": 1,
+      "email": "george.bluth@reqres.in",
+      "first_name": "George",
+      "last_name": "Bluth",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg"
+    },
+    "userUpdate": 12,
+    "userDelete": 9321,
+    "supportExpected": {
+      "url": "https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral",
+      "text": "Tired of writing endless social media content? Let Content Caddy generate it for you."
+    },
+    "api":
+      { 
+        "status":
+          {
+          "success": 200,
+          "created": 201,
+          "successNoContent": 204
+          }
+      }
+  }
+  
