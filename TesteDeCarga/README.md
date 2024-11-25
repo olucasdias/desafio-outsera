@@ -13,7 +13,17 @@ Documentação com teste e desafios teste Carga
 - [Influxdb](https://github.com/influxdata/influxdb)
 
 ### Execução de teste com docker, influxdb e grafana:
-- With npm:
+
+- Subir docker-compose
+- Execução npm:
   - ```npm run StressWith500Users```    
-- Without K6 and output to Grafana:
-  - ```k6 run -e NODE_ENV=PRD src/simulations/StressWith500Users.test.js --out influxdb=http://localhost:8086/outsera```
+- Execução K6 e saida para dashboard no Grafana:
+  - ```k6 run -e NODE_ENV=PRD src/simulations/StressWith500Users.test.js --out influxdb=http://localhost:8086/k6```
+
+### Analise teste de carga:
+
+Análise (Print do gráfico na pasta Dashboard): 
+        - O tempo médio de resposta de 8.50 segundos é muito alto para a maioria dos sistemas. Isso indica que a aplicação está demorando um tempo significativo para processar as requisições. O que pode acabar afetando a experiência do cliente/usuário que acessa o site.
+        - O percentil 90 (16.31s) e o percentil 95 (16.94s) mostram que 90% das requisições estão demorando mais de 16 segundos para serem atendidas. Esse tempo de resposta é inaceitável para a maioria dos sistemas em produção, especialmente em testes de estresse.
+        - O tempo máximo de 18.12 segundos para uma requisição também é um sinal de que o sistema está enfrentando sérias dificuldades em lidar com a carga (Ou seja, vários requisições simultaneas)
+        - É necessário rever o desempenho do backend, tais como criações de index para o banco de dados, melhorias como cache para que evite a busca recorrente no banco de dados melhorando assim a performance e até pensar em um escalonamento de máquina ou tasks para que seja possível equilibrar o número de chamadas/requisições simultaneas. 
