@@ -1,0 +1,38 @@
+# CI/CD para automação
+
+Outsera - Desafio CI/CD, para testes de e2e, api e mobile! 
+
+## Objetivo
+
+Criar uma CI/CD que realize a execução do pipeline a cada commit executado
+
+### Executando pipeline
+
+#### 1. Execução dos testes na pipeline:
+
+O comando para a execução da pipeline é da seguinte forma:
+
+```
+    npm test -- --test-type=
+``` 
+
+Alterando apenas o valor do pipeline a ser executado, com os tipos:
+- api_outsera
+- mobile_outsera
+- e2e_outsera
+
+Por exemplo:
+
+```
+    npm test -- --test-type=api_outsera
+```
+
+Log sucesso:
+
+    Run npm test -- --test-type=api
+    ✔ Teste de API concluído com sucesso
+
+Log de erro:
+
+    Run npm test -- --test-type=e2e
+    ✖ Teste E2E falhou: X testes falharam
