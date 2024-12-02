@@ -10,13 +10,19 @@ O objetivo deste desafio é realizar requisições para a API de usuários (`htt
 
 Antes de rodar os testes, é necessário ter o Node.js instalado na máquina! [nodejs.org](https://nodejs.org/).
 
-### Instalar o Playwright
+### Tecnologias utilizadas:
+
+PlayRight
+NodeJs
+Faker
+
+## Instalar o Playwright
 
 1. Clone este repositório para sua máquina:
 
     ```bash
     git clone https://github.com/olucasdias/desafio-outsera.git
-    cd teste-api-playwright
+    cd TesteApi
     ```
 
 2. Instale as dependências do projeto:
@@ -24,10 +30,11 @@ Antes de rodar os testes, é necessário ter o Node.js instalado na máquina! [n
     ```bash
     npm install
 
-    npm install @faker-js/faker
+    npm install @faker-js/faker #Caso o faker de algum problema na hora de instalar as dependencias
     ```
 
 3. Acesse a pasta "testes" e execute o comando abaixo para executar todos os testes:
     ```bash
+    cd TesteApi/testes/user
     npx playwright test
     ```
