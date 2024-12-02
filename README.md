@@ -9,6 +9,47 @@
         - O tempo máximo de 18.12 segundos para uma requisição também é um sinal de que o sistema está enfrentando sérias dificuldades em lidar com a carga (Ou seja, vários requisições simultaneas)
         - É necessário rever o desempenho do backend, tais como criações de index para o banco de dados, melhorias como cache para que evite a busca recorrente no banco de dados melhorando assim a performance e até pensar em um escalonamento de máquina ou tasks para que seja possível equilibrar o número de chamadas/requisições simultaneas. 
 
+# Testes de API com Playwright
+
+Outsera - Desafio API, validação para a API pública `https://reqres.in/api/users` utilizando o Playwright.
+
+## Objetivo
+
+O objetivo deste desafio é realizar requisições para a API de usuários (`https://reqres.in/api/users`) e validar os seguintes pontos:
+
+## Pré-requisitos
+
+Antes de rodar os testes, é necessário ter o Node.js instalado na máquina! [nodejs.org](https://nodejs.org/).
+
+### Tecnologias utilizadas:
+
+- PlayRight
+- NodeJs
+- Faker
+
+## Instalar o Playwright
+
+1. Clone este repositório para sua máquina:
+
+    ```bash
+    git clone https://github.com/olucasdias/desafio-outsera.git
+    cd TesteApi
+    ```
+
+2. Instale as dependências do projeto:
+
+    ```bash
+    npm install
+
+    npm install @faker-js/faker #Caso o faker de algum problema na hora de instalar as dependencias
+    ```
+
+3. Acesse a pasta "testes" e execute o comando abaixo para executar todos os testes:
+    ```bash
+    cd TesteApi/testes/user
+    npx playwright test
+    ```
+
 # Desafio 2 - Testes Automatizados de Carga
     Contexto: Fiz a automação para uma api pública que encontrei (https://reqres.in/api/users) usando playwright com javascript, a api não é uma das melhores mas tentei aplicar técnicas como:
         - Validação do retorno da API
