@@ -56,6 +56,38 @@ Antes de rodar os testes, é necessário ter o Node.js instalado na máquina! [n
         - Utilização de arquivo de massa para carregar dados (a fim de evitar duplicidade e deixar o código mais limpo)
         - A api não é tão boa para fazer validações após criar, deletar e atualizar o usuário! Então, não consegui fazer um get após o (POST, DELETE E PUT), porque estes dados não vinham o retorno atualizado.
 
+
+## Teconologias usadas:  
+- [JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) 
+- [npm](https://www.npmjs.com/)
+- [k6](https://k6.io/)
+- [docker](https://www.docker.com/get-started)
+- [Grafana](https://grafana.com/)
+- [Influxdb](https://github.com/influxdata/influxdb)
+
+## Instalação
+
+1. Clone este repositório para sua máquina:
+
+    ```bash
+    git clone https://github.com/olucasdias/desafio-outsera.git
+    cd desafio-outsera/TesteDeCarga
+    ```
+2. Instale as dependências do projeto:
+
+    ```bash
+    npm install
+    ```
+3. Caso o k6 não seja instalado, instale manualmente (Ele será instalado globlamente):
+    ```bash
+    npm install -g k6
+    ``` 
+
+### Execução de teste com docker, influxdb e grafana:
+
+- Subir docker-compose
+  ```npm run docker:up```
+
 # Desafio 3 - Testes E2E
     Contexto: Fiz a automação para um site publico que encontrei (https://www.saucedemo.com/) usando cypress com javascript! 
     (Não encontrei mais tantas opções de site que permitiam simular um checkout)
@@ -63,8 +95,71 @@ Antes de rodar os testes, é necessário ter o Node.js instalado na máquina! [n
         - Tentei deixar o código mais limpo possível e reaproveitando steps que já foram escritos no Gherkin, assim evita criar steps iguais
         - Fiz uma abordagem de criar métodos para que facilitasse e deixasse o código mais limpo, e também mapeamento os elementos com Page Object para que facilite a manutenção e mapeamento dos mesmos
 
+## Como Executar os Testes
+
+### Passo 1: Clone o repositório
+
+Instale o Cypress e o Cucumber Preprocessor:
+
+ ```bash
+git clone https://github.com/olucasdias/desafio-outsera.git
+ ```
+
+### Passo 2: Instalar Dependências
+
+```bash
+npm install --save-dev cypress cypress-cucumber-preprocessor
+
+### Passo 3: Executar teste 
+
+Execute os testes com o comando:
+
+```bash
+cd desafio-outsera/TesteDeFront/cypress
+npx cypress open
+```
+
 # Desafio 4 - Testes mobile
     Contexto: Tive alguns problemas com o cypress que começou a dar crash ao tentar executar os testes com um volume auto de memória e também acabei não encontrando algum aplicativo para que fosse possível simular este testes, e acabei ficando sem tempo.
 
 # Desafio 5 - Testes CI/CD
     Contexto: Tentei deixar um mapeamento para os 3 tipos de serviços sendo executandos apos cada commit! Testes de mobile, api e E2E.
+
+# CI/CD para automação
+
+Outsera - Desafio CI/CD, para testes de e2e, api e mobile! 
+
+## Objetivo
+
+Criar uma CI/CD que realize a execução do pipeline a cada commit executado
+
+### Executando pipeline
+
+#### 1. Execução dos testes na pipeline:
+
+O comando para a execução da pipeline é da seguinte forma:
+
+```
+    npm test -- --test-type=
+``` 
+
+Alterando apenas o valor do pipeline a ser executado, com os tipos:
+- api_outsera
+- mobile_outsera
+- e2e_outsera
+
+Por exemplo:
+
+```
+    npm test -- --test-type=api_outsera
+```
+
+Log sucesso:
+
+    Run npm test -- --test-type=api
+    ✔ Teste de API concluído com sucesso
+
+Log de erro:
+
+    Run npm test -- --test-type=e2e
+    ✖ Teste E2E falhou: X testes falharam
