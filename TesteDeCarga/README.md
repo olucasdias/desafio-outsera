@@ -12,11 +12,28 @@ Documentação com teste e desafios teste Carga
 - [Grafana](https://grafana.com/)
 - [Influxdb](https://github.com/influxdata/influxdb)
 
+## Instalação
+
+1. Clone este repositório para sua máquina:
+
+    ```bash
+    git clone https://github.com/olucasdias/desafio-outsera.git
+    cd TesteDeCarga
+    ```
+2. Instale as dependências do projeto:
+
+    ```bash
+    npm install
+    ```
+3. Caso o k6 não seja instalado, instale manualmente (Ele será instalado globlamente):
+    ```bash
+    npm install -g k6
+    ``` 
+
 ### Execução de teste com docker, influxdb e grafana:
 
 - Subir docker-compose
-- Execução npm:
-  - ```npm run StressWith500Users```    
+  ```npm run docker:up```
 - Execução K6 e saida para dashboard no Grafana:
   - ```k6 run -e NODE_ENV=PRD src/simulations/StressWith500Users.test.js --out influxdb=http://localhost:8086/k6```
 
