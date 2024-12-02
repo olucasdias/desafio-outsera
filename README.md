@@ -33,7 +33,7 @@ Antes de rodar os testes, é necessário ter o Node.js instalado na máquina! [n
 
     ```bash
     git clone https://github.com/olucasdias/desafio-outsera.git
-    cd TesteApi
+    cd desafio-outsera/TesteApi
     ```
 
 2. Instale as dependências do projeto:
@@ -46,7 +46,7 @@ Antes de rodar os testes, é necessário ter o Node.js instalado na máquina! [n
 
 3. Acesse a pasta "testes" e execute o comando abaixo para executar todos os testes:
     ```bash
-    cd TesteApi/testes/user
+    cd desafio-outsera/TesteApi/testes/user
     npx playwright test
     ```
 
