@@ -109,6 +109,7 @@ git clone https://github.com/olucasdias/desafio-outsera.git
 
 ```bash
 npm install --save-dev cypress cypress-cucumber-preprocessor
+```
 
 ### Passo 3: Executar teste 
 
