@@ -18,7 +18,7 @@ Documentação com teste e desafios teste Carga
 
     ```bash
     git clone https://github.com/olucasdias/desafio-outsera.git
-    cd TesteDeCarga
+    cd desafio-outsera/TesteDeCarga
     ```
 2. Instale as dependências do projeto:
 
